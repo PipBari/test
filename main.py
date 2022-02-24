@@ -15,29 +15,37 @@ def download(q=None):
         print(r.status_code)
 
 
-def input_member(p=None):
-    headers = {"app-id": "620e1ba31d484bfb25e26c0d", "Host": "dummyapi.io"}
-    url = f"https://dummyapi.io/data/v1/user/{p}"
-    # dannie = {
-    #     "text": "wwwwwww",
-    #     "image": "https://cdnn21.img.ria.ru/images/151546/28/1515462835_0:0:1036:587_600x0_80_0_0_a75f922e8b052d966122e1c9dc40feb4.jpg",
-    #     "likes": 2,
-    #     "tags": ["sdads"],
-    #     "owner": "620e1ba31d484bfb25e26c0d"
-    # }
-    p = requests.get(url=url, headers=headers)
-    print(p)
+def new_id():
+    headers = {"app-id": "620e1ba31d484bfb25e26c0d", "host": "dummyapi.io"}
+    url = f"https://dummyapi.io/data/v1/user/create"
+    information = {"firstName": "Aboba", "lastName": "Abobas", "email": "QWEZXC@aaaa.com"}
+    re = requests.post(url=url, json=information, headers=headers)
 
 
-input_member()
+def new_post():
+    headers = {"app-id": "620e1ba31d484bfb25e26c0d", "host": "dummyapi.io"}
+    url = f"https://dummyapi.io/data/v1/user/create"
+    data_inf = {"text", "image", "likes", "tags", "owner"}
+    res = requests.post(url=url, json=data_inf, headers=headers)
+    if res.status_code == 200:
+        print(res.status_code)
+    else:
+        print(res.status_code)
 
-# def main():
-#     x = int(input(
-#         "Введите число в промежутке <1(Если хотите узнать данные сотрудника) >=1(Если хотите внести нового сотрудника)"))
-#     if x < 1:
-#         q = input("Введите интересующий Вас ID:")
-#         download(q)
-#     else:
-#
-#
-# main()
+
+def main():
+    x = int(input(
+        "Введите число в промежутке <1(Если хотите узнать данные сотрудника) >=1(Если хотите внести нового сотрудника)"))
+    if x < 1:
+        q = input("Введите интересующий Вас ID:")
+        download(q)
+    else:
+        k = {
+            "text": string(input("Введите текст:"))
+            "image": string(input("Введите ссылку:"))
+
+        }
+    new_post(k)
+
+
+main()
